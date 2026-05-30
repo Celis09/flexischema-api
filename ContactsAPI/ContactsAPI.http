@@ -1,0 +1,18 @@
+@ContactsAPI_HostAddress = http://localhost:5039
+
+### Create a new contact
+POST {{ContactsAPI_HostAddress}}/api/contacts
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "extraFields": [
+    { "fieldName": "Twitter", "fieldType": "Handle", "fieldValue": "@john" },
+    { "fieldName": "LinkedIn", "fieldType": "Profile", "fieldValue": "linkedin.com/in/john" }
+  ]
+}
+
+
+###

@@ -1,0 +1,904 @@
+Folder PATH listing
+Volume serial number is A241-081A
+C:.
+³   ContactsAPI.sln
+³   global.json
+³   structure.txt
+³   
+ÃÄÄÄContactsAPI
+³   ³   appsettings.Development.json
+³   ³   appsettings.json
+³   ³   ContactsAPI.csproj
+³   ³   ContactsAPI.csproj.user
+³   ³   ContactsAPI.http
+³   ³   Program.cs
+³   ³   
+³   ÃÄÄÄAPI
+³   ³   ÀÄÄÄControllers
+³   ³       ÃÄÄÄAdminController
+³   ³       ³       AdminConfigsController.cs
+³   ³       ³       AuditLogsController.cs
+³   ³       ³       ExtraFieldDefinitionsController.cs
+³   ³       ³       MetricsController.cs
+³   ³       ³       
+³   ³       ÃÄÄÄAuditLogController
+³   ³       ³       AuditLogsContoller.cs
+³   ³       ³       
+³   ³       ÃÄÄÄContactController
+³   ³       ³       ContactsController.cs
+³   ³       ³       
+³   ³       ÃÄÄÄLogInController
+³   ³       ³       AuthController.cs
+³   ³       ³       
+³   ³       ÀÄÄÄUserController
+³   ³               UsersController.cs
+³   ³               
+³   ÃÄÄÄApplication
+³   ³   ÃÄÄÄAbstractions
+³   ³   ³       IConfigService.cs
+³   ³   ³       IHealthCheck.cs
+³   ³   ³       IUserContext.cs
+³   ³   ³       
+³   ³   ÃÄÄÄAttributes
+³   ³   ³       AuthorizeRoleAttribute.cs
+³   ³   ³       
+³   ³   ÃÄÄÄAuth
+³   ³   ³       LoginRequest.cs
+³   ³   ³       
+³   ³   ÃÄÄÄBehaviors
+³   ³   ³       AuditLoggingBehavior.cs
+³   ³   ³       CorrelationIdBehavior.cs
+³   ³   ³       ExceptionHandlingBehavior.cs
+³   ³   ³       LoggingBehavior.cs
+³   ³   ³       MetricsBehavior.cs
+³   ³   ³       RoleAuthorizationBehavior.cs
+³   ³   ³       ValidationBehavior.cs
+³   ³   ³       
+³   ³   ÃÄÄÄCommands
+³   ³   ³   ÃÄÄÄAdminCommands
+³   ³   ³   ³   ³   AddExtraFieldDefinitionCommand.cs
+³   ³   ³   ³   ³   UpdateAdminConfigCommand.cs
+³   ³   ³   ³   ³   UpdateExtraFieldDefinitionCommand.cs
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÃÄÄÄImportContacts
+³   ³   ³   ³   ³       ImportContactsCommand.cs
+³   ³   ³   ³   ³       ImportResult.cs
+³   ³   ³   ³   ³       
+³   ³   ³   ³   ÀÄÄÄValidators
+³   ³   ³   ³           AddExtraFieldDefinitionCommandValidator.cs
+³   ³   ³   ³           UpdateExtraFieldDefinitionCommandValidator.cs
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄContactCommands
+³   ³   ³   ³   ³   AddContactCommand.cs
+³   ³   ³   ³   ³   DeleteContactCommand.cs
+³   ³   ³   ³   ³   UpdateContactCommand.cs
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÀÄÄÄValidators
+³   ³   ³   ³           AddContactCommandValidator.cs
+³   ³   ³   ³           DeleteContactCommandValidator.cs
+³   ³   ³   ³           UpdateContactCommandValidator.cs
+³   ³   ³   ³           
+³   ³   ³   ÀÄÄÄUserCommands
+³   ³   ³       ³   CreateUserCommand.cs
+³   ³   ³       ³   DeleteUserCommand.cs
+³   ³   ³       ³   UpdateUserCommand.cs
+³   ³   ³       ³   
+³   ³   ³       ÀÄÄÄValidators
+³   ³   ³               CreateUserCommandValidator.cs
+³   ³   ³               DeleteUserCommandValidator.cs
+³   ³   ³               UpdateUserCommandValidator.cs
+³   ³   ³               
+³   ³   ÃÄÄÄDtos
+³   ³   ³   ³   AdminActionSummaryDto.cs
+³   ³   ³   ³   AdminConfigDto.cs
+³   ³   ³   ³   AuditLogDto.cs
+³   ³   ³   ³   ContactCustomFieldDto.cs
+³   ³   ³   ³   ContactDto.cs
+³   ³   ³   ³   ContactExtraFieldRequest.cs
+³   ³   ³   ³   ContactExtraFieldResponse.cs
+³   ³   ³   ³   ExtraFieldDefinitionDto.cs
+³   ³   ³   ³   LoginRequest.cs
+³   ³   ³   ³   PagedResult.cs
+³   ³   ³   ³   UserDto.cs
+³   ³   ³   ³   
+³   ³   ³   ÀÄÄÄNewDtos
+³   ³   ÃÄÄÄExceptions
+³   ³   ³       NotFoundException.cs
+³   ³   ³       UnauthorizedAccessAppException.cs
+³   ³   ³       ValidationException.cs
+³   ³   ³       
+³   ³   ÃÄÄÄHandlers
+³   ³   ³   ³   GetAllContactsHandler.cs
+³   ³   ³   ³   
+³   ³   ³   ÃÄÄÄAdminHandlers
+³   ³   ³   ³       AddExtraFieldDefinitionHandler.cs
+³   ³   ³   ³       ExportContactsHandler.cs
+³   ³   ³   ³       GetAdminConfigsHandler.cs
+³   ³   ³   ³       GetExtraFieldDefinitionsHandler.cs
+³   ³   ³   ³       ImportContactsHandler.cs
+³   ³   ³   ³       UpdateAdminConfigHandler.cs
+³   ³   ³   ³       UpdateExtraFieldDefinitionHandler.cs
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄAuditLogHandler
+³   ³   ³   ³       GetAdminActionsSummaryHandler.cs
+³   ³   ³   ³       GetAllAuditLogsHandler.cs
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄContactHandlers
+³   ³   ³   ³       AddContactHandler.cs
+³   ³   ³   ³       DeleteContactHandler.cs
+³   ³   ³   ³       GetContactByIdHandler.cs
+³   ³   ³   ³       GetContactsHandler.cs
+³   ³   ³   ³       UpdateContactHandler.cs
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄMiddlewareHandler
+³   ³   ³   ³       CorrelationIdDelegatingHandler.cs
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄUser Handlers
+³   ³   ³           CreateUserHandler.cs
+³   ³   ³           DeleteUserHandler.cs
+³   ³   ³           GetAllUsersHandler.cs
+³   ³   ³           GetUserByIdHandler.cs
+³   ³   ³           UpdateUserHandler.cs
+³   ³   ³           
+³   ³   ÃÄÄÄHelper
+³   ³   ³       AuditLogQueryExtensions.cs
+³   ³   ³       ContactQueryExtensions.cs
+³   ³   ³       HealthCheckBuilderExtensions.cs
+³   ³   ³       MetricsHelper.cs
+³   ³   ³       QueryableExtensions.cs
+³   ³   ³       UserQueryExtensions.cs
+³   ³   ³       
+³   ³   ÃÄÄÄQueries
+³   ³   ³   ÃÄÄÄAdmin Queries
+³   ³   ³   ³   ³   GetAdminConfigsQuery.cs
+³   ³   ³   ³   ³   GetExtraFieldDefinitionsQuery.cs
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÀÄÄÄValidators
+³   ³   ³   ³           GetExtraFieldDefinitionsQueryValidator.cs
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄAuditLogQueries
+³   ³   ³   ³       AdminActionSummaryFilter.cs
+³   ³   ³   ³       GetAdminActionsSummaryQuery.cs
+³   ³   ³   ³       GetAllAuditLogsQuery.cs
+³   ³   ³   ³       
+³   ³   ³   ÃÄÄÄContact Queries
+³   ³   ³   ³   ³   GetAllContactsQuery.cs
+³   ³   ³   ³   ³   GetContactByIdQuery.cs
+³   ³   ³   ³   ³   GetContactsQuery.cs
+³   ³   ³   ³   ³   
+³   ³   ³   ³   ÀÄÄÄValidators
+³   ³   ³   ³           GetContactByIdQueryValidator.cs
+³   ³   ³   ³           
+³   ³   ³   ÃÄÄÄExportContacts
+³   ³   ³   ³       ExportContactsQuery.cs
+³   ³   ³   ³       ExportResult.cs
+³   ³   ³   ³       
+³   ³   ³   ÀÄÄÄUser Queries
+³   ³   ³       ³   GetAllUsersQuery.cs
+³   ³   ³       ³   GetUserByIdQuery.cs
+³   ³   ³       ³   
+³   ³   ³       ÀÄÄÄValidators
+³   ³   ³               GetUserByIdQueryValidator.cs
+³   ³   ³               
+³   ³   ÀÄÄÄSharedRules
+³   ³           ContactExtraFieldValidator.cs
+³   ³           ContactExtraFieldValueValidator.cs
+³   ³           
+³   ÃÄÄÄbin
+³   ³   ÀÄÄÄDebug
+³   ³       ÀÄÄÄnet8.0
+³   ³           ³   appsettings.Development.json
+³   ³           ³   appsettings.json
+³   ³           ³   Azure.Core.dll
+³   ³           ³   Azure.Identity.dll
+³   ³           ³   BCrypt.Net-Next.dll
+³   ³           ³   Castle.Core.dll
+³   ³           ³   ContactsAPI.deps.json
+³   ³           ³   ContactsAPI.dll
+³   ³           ³   ContactsAPI.exe
+³   ³           ³   ContactsAPI.pdb
+³   ³           ³   ContactsAPI.runtimeconfig.json
+³   ³           ³   Elasticsearch.Net.dll
+³   ³           ³   FluentAssertions.dll
+³   ³           ³   FluentValidation.DependencyInjectionExtensions.dll
+³   ³           ³   FluentValidation.dll
+³   ³           ³   Humanizer.dll
+³   ³           ³   MediatR.dll
+³   ³           ³   MediatR.Extensions.Microsoft.DependencyInjection.dll
+³   ³           ³   Microsoft.AspNetCore.Authentication.JwtBearer.dll
+³   ³           ³   Microsoft.AspNetCore.Mvc.Testing.dll
+³   ³           ³   Microsoft.AspNetCore.TestHost.dll
+³   ³           ³   Microsoft.Bcl.AsyncInterfaces.dll
+³   ³           ³   Microsoft.CodeAnalysis.CSharp.dll
+³   ³           ³   Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+³   ³           ³   Microsoft.CodeAnalysis.dll
+³   ³           ³   Microsoft.CodeAnalysis.Workspaces.dll
+³   ³           ³   Microsoft.Data.SqlClient.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.Abstractions.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.Design.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.InMemory.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.Relational.dll
+³   ³           ³   Microsoft.EntityFrameworkCore.SqlServer.dll
+³   ³           ³   Microsoft.Extensions.Caching.Memory.dll
+³   ³           ³   Microsoft.Extensions.Configuration.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.Configuration.Binder.dll
+³   ³           ³   Microsoft.Extensions.Configuration.dll
+³   ³           ³   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.DependencyInjection.dll
+³   ³           ³   Microsoft.Extensions.DependencyModel.dll
+³   ³           ³   Microsoft.Extensions.Diagnostics.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+³   ³           ³   Microsoft.Extensions.FileProviders.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.Hosting.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.Logging.Abstractions.dll
+³   ³           ³   Microsoft.Extensions.Logging.dll
+³   ³           ³   Microsoft.Extensions.Options.dll
+³   ³           ³   Microsoft.Extensions.Primitives.dll
+³   ³           ³   Microsoft.Identity.Client.dll
+³   ³           ³   Microsoft.Identity.Client.Extensions.Msal.dll
+³   ³           ³   Microsoft.IdentityModel.Abstractions.dll
+³   ³           ³   Microsoft.IdentityModel.JsonWebTokens.dll
+³   ³           ³   Microsoft.IdentityModel.Logging.dll
+³   ³           ³   Microsoft.IdentityModel.Protocols.dll
+³   ³           ³   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+³   ³           ³   Microsoft.IdentityModel.Tokens.dll
+³   ³           ³   Microsoft.OpenApi.dll
+³   ³           ³   Microsoft.SqlServer.Server.dll
+³   ³           ³   Microsoft.TestPlatform.CommunicationUtilities.dll
+³   ³           ³   Microsoft.TestPlatform.CoreUtilities.dll
+³   ³           ³   Microsoft.TestPlatform.CrossPlatEngine.dll
+³   ³           ³   Microsoft.TestPlatform.PlatformAbstractions.dll
+³   ³           ³   Microsoft.TestPlatform.Utilities.dll
+³   ³           ³   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+³   ³           ³   Microsoft.VisualStudio.TestPlatform.Common.dll
+³   ³           ³   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+³   ³           ³   Mono.TextTemplating.dll
+³   ³           ³   Moq.dll
+³   ³           ³   MvcTestingAppManifest.json
+³   ³           ³   Newtonsoft.Json.dll
+³   ³           ³   Serilog.AspNetCore.dll
+³   ³           ³   Serilog.dll
+³   ³           ³   Serilog.Enrichers.Environment.dll
+³   ³           ³   Serilog.Enrichers.Thread.dll
+³   ³           ³   Serilog.Extensions.Hosting.dll
+³   ³           ³   Serilog.Extensions.Logging.dll
+³   ³           ³   Serilog.Formatting.Compact.dll
+³   ³           ³   Serilog.Formatting.Elasticsearch.dll
+³   ³           ³   Serilog.Settings.Configuration.dll
+³   ³           ³   Serilog.Sinks.Console.dll
+³   ³           ³   Serilog.Sinks.Debug.dll
+³   ³           ³   Serilog.Sinks.Elasticsearch.dll
+³   ³           ³   Serilog.Sinks.File.dll
+³   ³           ³   Serilog.Sinks.PeriodicBatching.dll
+³   ³           ³   Serilog.Sinks.Seq.dll
+³   ³           ³   Swashbuckle.AspNetCore.Swagger.dll
+³   ³           ³   Swashbuckle.AspNetCore.SwaggerGen.dll
+³   ³           ³   Swashbuckle.AspNetCore.SwaggerUI.dll
+³   ³           ³   System.ClientModel.dll
+³   ³           ³   System.CodeDom.dll
+³   ³           ³   System.Composition.AttributedModel.dll
+³   ³           ³   System.Composition.Convention.dll
+³   ³           ³   System.Composition.Hosting.dll
+³   ³           ³   System.Composition.Runtime.dll
+³   ³           ³   System.Composition.TypedParts.dll
+³   ³           ³   System.Configuration.ConfigurationManager.dll
+³   ³           ³   System.Diagnostics.DiagnosticSource.dll
+³   ³           ³   System.Diagnostics.EventLog.dll
+³   ³           ³   System.IdentityModel.Tokens.Jwt.dll
+³   ³           ³   System.IO.Pipelines.dll
+³   ³           ³   System.Memory.Data.dll
+³   ³           ³   System.Security.Cryptography.Pkcs.dll
+³   ³           ³   System.Security.Cryptography.ProtectedData.dll
+³   ³           ³   System.Text.Encodings.Web.dll
+³   ³           ³   System.Text.Json.dll
+³   ³           ³   testhost.dll
+³   ³           ³   testhost.exe
+³   ³           ³   xunit.abstractions.dll
+³   ³           ³   xunit.assert.dll
+³   ³           ³   xunit.core.dll
+³   ³           ³   xunit.execution.dotnet.dll
+³   ³           ³   xunit.runner.visualstudio.testadapter.dll
+³   ³           ³   
+³   ³           ÃÄÄÄcs
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄde
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄes
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄfr
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄit
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄja
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄko
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄpl
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄpt-BR
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄrefs
+³   ³           ³       Microsoft.AspNetCore.Antiforgery.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.BearerToken.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.Cookies.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.Core.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.dll
+³   ³           ³       Microsoft.AspNetCore.Authentication.OAuth.dll
+³   ³           ³       Microsoft.AspNetCore.Authorization.dll
+³   ³           ³       Microsoft.AspNetCore.Authorization.Policy.dll
+³   ³           ³       Microsoft.AspNetCore.Components.Authorization.dll
+³   ³           ³       Microsoft.AspNetCore.Components.dll
+³   ³           ³       Microsoft.AspNetCore.Components.Endpoints.dll
+³   ³           ³       Microsoft.AspNetCore.Components.Forms.dll
+³   ³           ³       Microsoft.AspNetCore.Components.Server.dll
+³   ³           ³       Microsoft.AspNetCore.Components.Web.dll
+³   ³           ³       Microsoft.AspNetCore.Connections.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.CookiePolicy.dll
+³   ³           ³       Microsoft.AspNetCore.Cors.dll
+³   ³           ³       Microsoft.AspNetCore.Cryptography.Internal.dll
+³   ³           ³       Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+³   ³           ³       Microsoft.AspNetCore.DataProtection.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.DataProtection.dll
+³   ³           ³       Microsoft.AspNetCore.DataProtection.Extensions.dll
+³   ³           ³       Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Diagnostics.dll
+³   ³           ³       Microsoft.AspNetCore.Diagnostics.HealthChecks.dll
+³   ³           ³       Microsoft.AspNetCore.dll
+³   ³           ³       Microsoft.AspNetCore.HostFiltering.dll
+³   ³           ³       Microsoft.AspNetCore.Hosting.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Hosting.dll
+³   ³           ³       Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Html.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Connections.Common.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Connections.dll
+³   ³           ³       Microsoft.AspNetCore.Http.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Extensions.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Features.dll
+³   ³           ³       Microsoft.AspNetCore.Http.Results.dll
+³   ³           ³       Microsoft.AspNetCore.HttpLogging.dll
+³   ³           ³       Microsoft.AspNetCore.HttpOverrides.dll
+³   ³           ³       Microsoft.AspNetCore.HttpsPolicy.dll
+³   ³           ³       Microsoft.AspNetCore.Identity.dll
+³   ³           ³       Microsoft.AspNetCore.Localization.dll
+³   ³           ³       Microsoft.AspNetCore.Localization.Routing.dll
+³   ³           ³       Microsoft.AspNetCore.Metadata.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.ApiExplorer.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Core.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Cors.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Formatters.Xml.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Localization.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.Razor.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.RazorPages.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.TagHelpers.dll
+³   ³           ³       Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+³   ³           ³       Microsoft.AspNetCore.OutputCaching.dll
+³   ³           ³       Microsoft.AspNetCore.RateLimiting.dll
+³   ³           ³       Microsoft.AspNetCore.Razor.dll
+³   ³           ³       Microsoft.AspNetCore.Razor.Runtime.dll
+³   ³           ³       Microsoft.AspNetCore.RequestDecompression.dll
+³   ³           ³       Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.ResponseCaching.dll
+³   ³           ³       Microsoft.AspNetCore.ResponseCompression.dll
+³   ³           ³       Microsoft.AspNetCore.Rewrite.dll
+³   ³           ³       Microsoft.AspNetCore.Routing.Abstractions.dll
+³   ³           ³       Microsoft.AspNetCore.Routing.dll
+³   ³           ³       Microsoft.AspNetCore.Server.HttpSys.dll
+³   ³           ³       Microsoft.AspNetCore.Server.IIS.dll
+³   ³           ³       Microsoft.AspNetCore.Server.IISIntegration.dll
+³   ³           ³       Microsoft.AspNetCore.Server.Kestrel.Core.dll
+³   ³           ³       Microsoft.AspNetCore.Server.Kestrel.dll
+³   ³           ³       Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes.dll
+³   ³           ³       Microsoft.AspNetCore.Server.Kestrel.Transport.Quic.dll
+³   ³           ³       Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll
+³   ³           ³       Microsoft.AspNetCore.Session.dll
+³   ³           ³       Microsoft.AspNetCore.SignalR.Common.dll
+³   ³           ³       Microsoft.AspNetCore.SignalR.Core.dll
+³   ³           ³       Microsoft.AspNetCore.SignalR.dll
+³   ³           ³       Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+³   ³           ³       Microsoft.AspNetCore.StaticFiles.dll
+³   ³           ³       Microsoft.AspNetCore.WebSockets.dll
+³   ³           ³       Microsoft.AspNetCore.WebUtilities.dll
+³   ³           ³       Microsoft.CSharp.dll
+³   ³           ³       Microsoft.Extensions.Caching.Abstractions.dll
+³   ³           ³       Microsoft.Extensions.Configuration.CommandLine.dll
+³   ³           ³       Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+³   ³           ³       Microsoft.Extensions.Configuration.FileExtensions.dll
+³   ³           ³       Microsoft.Extensions.Configuration.Ini.dll
+³   ³           ³       Microsoft.Extensions.Configuration.Json.dll
+³   ³           ³       Microsoft.Extensions.Configuration.KeyPerFile.dll
+³   ³           ³       Microsoft.Extensions.Configuration.UserSecrets.dll
+³   ³           ³       Microsoft.Extensions.Configuration.Xml.dll
+³   ³           ³       Microsoft.Extensions.Diagnostics.dll
+³   ³           ³       Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+³   ³           ³       Microsoft.Extensions.Diagnostics.HealthChecks.dll
+³   ³           ³       Microsoft.Extensions.Features.dll
+³   ³           ³       Microsoft.Extensions.FileProviders.Composite.dll
+³   ³           ³       Microsoft.Extensions.FileProviders.Embedded.dll
+³   ³           ³       Microsoft.Extensions.FileProviders.Physical.dll
+³   ³           ³       Microsoft.Extensions.FileSystemGlobbing.dll
+³   ³           ³       Microsoft.Extensions.Hosting.dll
+³   ³           ³       Microsoft.Extensions.Http.dll
+³   ³           ³       Microsoft.Extensions.Identity.Core.dll
+³   ³           ³       Microsoft.Extensions.Identity.Stores.dll
+³   ³           ³       Microsoft.Extensions.Localization.Abstractions.dll
+³   ³           ³       Microsoft.Extensions.Localization.dll
+³   ³           ³       Microsoft.Extensions.Logging.Configuration.dll
+³   ³           ³       Microsoft.Extensions.Logging.Console.dll
+³   ³           ³       Microsoft.Extensions.Logging.Debug.dll
+³   ³           ³       Microsoft.Extensions.Logging.EventLog.dll
+³   ³           ³       Microsoft.Extensions.Logging.EventSource.dll
+³   ³           ³       Microsoft.Extensions.Logging.TraceSource.dll
+³   ³           ³       Microsoft.Extensions.ObjectPool.dll
+³   ³           ³       Microsoft.Extensions.Options.ConfigurationExtensions.dll
+³   ³           ³       Microsoft.Extensions.Options.DataAnnotations.dll
+³   ³           ³       Microsoft.Extensions.WebEncoders.dll
+³   ³           ³       Microsoft.JSInterop.dll
+³   ³           ³       Microsoft.Net.Http.Headers.dll
+³   ³           ³       Microsoft.VisualBasic.Core.dll
+³   ³           ³       Microsoft.VisualBasic.dll
+³   ³           ³       Microsoft.Win32.Primitives.dll
+³   ³           ³       Microsoft.Win32.Registry.dll
+³   ³           ³       mscorlib.dll
+³   ³           ³       netstandard.dll
+³   ³           ³       System.AppContext.dll
+³   ³           ³       System.Buffers.dll
+³   ³           ³       System.Collections.Concurrent.dll
+³   ³           ³       System.Collections.dll
+³   ³           ³       System.Collections.Immutable.dll
+³   ³           ³       System.Collections.NonGeneric.dll
+³   ³           ³       System.Collections.Specialized.dll
+³   ³           ³       System.ComponentModel.Annotations.dll
+³   ³           ³       System.ComponentModel.DataAnnotations.dll
+³   ³           ³       System.ComponentModel.dll
+³   ³           ³       System.ComponentModel.EventBasedAsync.dll
+³   ³           ³       System.ComponentModel.Primitives.dll
+³   ³           ³       System.ComponentModel.TypeConverter.dll
+³   ³           ³       System.Configuration.dll
+³   ³           ³       System.Console.dll
+³   ³           ³       System.Core.dll
+³   ³           ³       System.Data.Common.dll
+³   ³           ³       System.Data.DataSetExtensions.dll
+³   ³           ³       System.Data.dll
+³   ³           ³       System.Diagnostics.Contracts.dll
+³   ³           ³       System.Diagnostics.Debug.dll
+³   ³           ³       System.Diagnostics.FileVersionInfo.dll
+³   ³           ³       System.Diagnostics.Process.dll
+³   ³           ³       System.Diagnostics.StackTrace.dll
+³   ³           ³       System.Diagnostics.TextWriterTraceListener.dll
+³   ³           ³       System.Diagnostics.Tools.dll
+³   ³           ³       System.Diagnostics.TraceSource.dll
+³   ³           ³       System.Diagnostics.Tracing.dll
+³   ³           ³       System.dll
+³   ³           ³       System.Drawing.dll
+³   ³           ³       System.Drawing.Primitives.dll
+³   ³           ³       System.Dynamic.Runtime.dll
+³   ³           ³       System.Formats.Asn1.dll
+³   ³           ³       System.Formats.Tar.dll
+³   ³           ³       System.Globalization.Calendars.dll
+³   ³           ³       System.Globalization.dll
+³   ³           ³       System.Globalization.Extensions.dll
+³   ³           ³       System.IO.Compression.Brotli.dll
+³   ³           ³       System.IO.Compression.dll
+³   ³           ³       System.IO.Compression.FileSystem.dll
+³   ³           ³       System.IO.Compression.ZipFile.dll
+³   ³           ³       System.IO.dll
+³   ³           ³       System.IO.FileSystem.AccessControl.dll
+³   ³           ³       System.IO.FileSystem.dll
+³   ³           ³       System.IO.FileSystem.DriveInfo.dll
+³   ³           ³       System.IO.FileSystem.Primitives.dll
+³   ³           ³       System.IO.FileSystem.Watcher.dll
+³   ³           ³       System.IO.IsolatedStorage.dll
+³   ³           ³       System.IO.MemoryMappedFiles.dll
+³   ³           ³       System.IO.Pipes.AccessControl.dll
+³   ³           ³       System.IO.Pipes.dll
+³   ³           ³       System.IO.UnmanagedMemoryStream.dll
+³   ³           ³       System.Linq.dll
+³   ³           ³       System.Linq.Expressions.dll
+³   ³           ³       System.Linq.Parallel.dll
+³   ³           ³       System.Linq.Queryable.dll
+³   ³           ³       System.Memory.dll
+³   ³           ³       System.Net.dll
+³   ³           ³       System.Net.Http.dll
+³   ³           ³       System.Net.Http.Json.dll
+³   ³           ³       System.Net.HttpListener.dll
+³   ³           ³       System.Net.Mail.dll
+³   ³           ³       System.Net.NameResolution.dll
+³   ³           ³       System.Net.NetworkInformation.dll
+³   ³           ³       System.Net.Ping.dll
+³   ³           ³       System.Net.Primitives.dll
+³   ³           ³       System.Net.Quic.dll
+³   ³           ³       System.Net.Requests.dll
+³   ³           ³       System.Net.Security.dll
+³   ³           ³       System.Net.ServicePoint.dll
+³   ³           ³       System.Net.Sockets.dll
+³   ³           ³       System.Net.WebClient.dll
+³   ³           ³       System.Net.WebHeaderCollection.dll
+³   ³           ³       System.Net.WebProxy.dll
+³   ³           ³       System.Net.WebSockets.Client.dll
+³   ³           ³       System.Net.WebSockets.dll
+³   ³           ³       System.Numerics.dll
+³   ³           ³       System.Numerics.Vectors.dll
+³   ³           ³       System.ObjectModel.dll
+³   ³           ³       System.Reflection.DispatchProxy.dll
+³   ³           ³       System.Reflection.dll
+³   ³           ³       System.Reflection.Emit.dll
+³   ³           ³       System.Reflection.Emit.ILGeneration.dll
+³   ³           ³       System.Reflection.Emit.Lightweight.dll
+³   ³           ³       System.Reflection.Extensions.dll
+³   ³           ³       System.Reflection.Metadata.dll
+³   ³           ³       System.Reflection.Primitives.dll
+³   ³           ³       System.Reflection.TypeExtensions.dll
+³   ³           ³       System.Resources.Reader.dll
+³   ³           ³       System.Resources.ResourceManager.dll
+³   ³           ³       System.Resources.Writer.dll
+³   ³           ³       System.Runtime.CompilerServices.Unsafe.dll
+³   ³           ³       System.Runtime.CompilerServices.VisualC.dll
+³   ³           ³       System.Runtime.dll
+³   ³           ³       System.Runtime.Extensions.dll
+³   ³           ³       System.Runtime.Handles.dll
+³   ³           ³       System.Runtime.InteropServices.dll
+³   ³           ³       System.Runtime.InteropServices.JavaScript.dll
+³   ³           ³       System.Runtime.InteropServices.RuntimeInformation.dll
+³   ³           ³       System.Runtime.Intrinsics.dll
+³   ³           ³       System.Runtime.Loader.dll
+³   ³           ³       System.Runtime.Numerics.dll
+³   ³           ³       System.Runtime.Serialization.dll
+³   ³           ³       System.Runtime.Serialization.Formatters.dll
+³   ³           ³       System.Runtime.Serialization.Json.dll
+³   ³           ³       System.Runtime.Serialization.Primitives.dll
+³   ³           ³       System.Runtime.Serialization.Xml.dll
+³   ³           ³       System.Security.AccessControl.dll
+³   ³           ³       System.Security.Claims.dll
+³   ³           ³       System.Security.Cryptography.Algorithms.dll
+³   ³           ³       System.Security.Cryptography.Cng.dll
+³   ³           ³       System.Security.Cryptography.Csp.dll
+³   ³           ³       System.Security.Cryptography.dll
+³   ³           ³       System.Security.Cryptography.Encoding.dll
+³   ³           ³       System.Security.Cryptography.OpenSsl.dll
+³   ³           ³       System.Security.Cryptography.Primitives.dll
+³   ³           ³       System.Security.Cryptography.X509Certificates.dll
+³   ³           ³       System.Security.Cryptography.Xml.dll
+³   ³           ³       System.Security.dll
+³   ³           ³       System.Security.Principal.dll
+³   ³           ³       System.Security.Principal.Windows.dll
+³   ³           ³       System.Security.SecureString.dll
+³   ³           ³       System.ServiceModel.Web.dll
+³   ³           ³       System.ServiceProcess.dll
+³   ³           ³       System.Text.Encoding.CodePages.dll
+³   ³           ³       System.Text.Encoding.dll
+³   ³           ³       System.Text.Encoding.Extensions.dll
+³   ³           ³       System.Text.RegularExpressions.dll
+³   ³           ³       System.Threading.Channels.dll
+³   ³           ³       System.Threading.dll
+³   ³           ³       System.Threading.Overlapped.dll
+³   ³           ³       System.Threading.RateLimiting.dll
+³   ³           ³       System.Threading.Tasks.Dataflow.dll
+³   ³           ³       System.Threading.Tasks.dll
+³   ³           ³       System.Threading.Tasks.Extensions.dll
+³   ³           ³       System.Threading.Tasks.Parallel.dll
+³   ³           ³       System.Threading.Thread.dll
+³   ³           ³       System.Threading.ThreadPool.dll
+³   ³           ³       System.Threading.Timer.dll
+³   ³           ³       System.Transactions.dll
+³   ³           ³       System.Transactions.Local.dll
+³   ³           ³       System.ValueTuple.dll
+³   ³           ³       System.Web.dll
+³   ³           ³       System.Web.HttpUtility.dll
+³   ³           ³       System.Windows.dll
+³   ³           ³       System.Xml.dll
+³   ³           ³       System.Xml.Linq.dll
+³   ³           ³       System.Xml.ReaderWriter.dll
+³   ³           ³       System.Xml.Serialization.dll
+³   ³           ³       System.Xml.XDocument.dll
+³   ³           ³       System.Xml.XmlDocument.dll
+³   ³           ³       System.Xml.XmlSerializer.dll
+³   ³           ³       System.Xml.XPath.dll
+³   ³           ³       System.Xml.XPath.XDocument.dll
+³   ³           ³       WindowsBase.dll
+³   ³           ³       
+³   ³           ÃÄÄÄru
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄruntimes
+³   ³           ³   ÃÄÄÄbrowser
+³   ³           ³   ³   ÀÄÄÄlib
+³   ³           ³   ³       ÀÄÄÄnet8.0
+³   ³           ³   ³               System.Text.Encodings.Web.dll
+³   ³           ³   ³               
+³   ³           ³   ÃÄÄÄunix
+³   ³           ³   ³   ÀÄÄÄlib
+³   ³           ³   ³       ÃÄÄÄnet6.0
+³   ³           ³   ³       ÀÄÄÄnet8.0
+³   ³           ³   ³               Microsoft.Data.SqlClient.dll
+³   ³           ³   ³               
+³   ³           ³   ÃÄÄÄwin
+³   ³           ³   ³   ÀÄÄÄlib
+³   ³           ³   ³       ÃÄÄÄnet6.0
+³   ³           ³   ³       ÀÄÄÄnet8.0
+³   ³           ³   ³               Microsoft.Data.SqlClient.dll
+³   ³           ³   ³               System.Diagnostics.EventLog.dll
+³   ³           ³   ³               System.Security.Cryptography.Pkcs.dll
+³   ³           ³   ³               
+³   ³           ³   ÃÄÄÄwin-arm
+³   ³           ³   ³   ÀÄÄÄnative
+³   ³           ³   ÃÄÄÄwin-arm64
+³   ³           ³   ³   ÀÄÄÄnative
+³   ³           ³   ³           Microsoft.Data.SqlClient.SNI.dll
+³   ³           ³   ³           
+³   ³           ³   ÃÄÄÄwin-x64
+³   ³           ³   ³   ÀÄÄÄnative
+³   ³           ³   ³           Microsoft.Data.SqlClient.SNI.dll
+³   ³           ³   ³           
+³   ³           ³   ÀÄÄÄwin-x86
+³   ³           ³       ÀÄÄÄnative
+³   ³           ³               Microsoft.Data.SqlClient.SNI.dll
+³   ³           ³               
+³   ³           ÃÄÄÄtr
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÃÄÄÄzh-Hans
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.resources.dll
+³   ³           ³       Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³           ³       Microsoft.Data.SqlClient.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³           ³       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³           ³       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³           ³       
+³   ³           ÀÄÄÄzh-Hant
+³   ³                   Microsoft.CodeAnalysis.CSharp.resources.dll
+³   ³                   Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+³   ³                   Microsoft.CodeAnalysis.resources.dll
+³   ³                   Microsoft.CodeAnalysis.Workspaces.resources.dll
+³   ³                   Microsoft.Data.SqlClient.resources.dll
+³   ³                   Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+³   ³                   Microsoft.TestPlatform.CoreUtilities.resources.dll
+³   ³                   Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+³   ³                   Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+³   ³                   Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+³   ³                   
+³   ÃÄÄÄData
+³   ³       ContactsDbContext.cs
+³   ³       
+³   ÃÄÄÄLogs
+³   ³       contactsapi-20260120.log
+³   ³       contactsapi-20260122.log
+³   ³       contactsapi-20260126.log
+³   ³       
+³   ÃÄÄÄMiddleware
+³   ³       CorrelationIdMiddleware.cs
+³   ³       ExceptionHandlingMiddleware.cs
+³   ³       
+³   ÃÄÄÄMigrations
+³   ³       20260122014910_Initial.cs
+³   ³       20260122014910_Initial.Designer.cs
+³   ³       20260125223654_SeedAdminUser.cs
+³   ³       20260125223654_SeedAdminUser.Designer.cs
+³   ³       20260126055354_MakeAuditLogUserIdNullable.cs
+³   ³       20260126055354_MakeAuditLogUserIdNullable.Designer.cs
+³   ³       20260202025305_RemoveAllowedRolesFromExtraFieldDefinition.cs
+³   ³       20260202025305_RemoveAllowedRolesFromExtraFieldDefinition.Designer.cs
+³   ³       20260202110343_AddAdminConfigs.cs
+³   ³       20260202110343_AddAdminConfigs.Designer.cs
+³   ³       ContactsDbContextModelSnapshot.cs
+³   ³       
+³   ÃÄÄÄModels
+³   ³       AdminConfig.cs
+³   ³       AuditLog.cs
+³   ³       Contact.cs
+³   ³       ContactExtraField.cs
+³   ³       ExtraFieldDefinition.cs
+³   ³       User.cs
+³   ³       
+³   ÃÄÄÄobj
+³   ³   ³   ContactsAPI.csproj.nuget.dgspec.json
+³   ³   ³   ContactsAPI.csproj.nuget.g.props
+³   ³   ³   ContactsAPI.csproj.nuget.g.targets
+³   ³   ³   project.assets.json
+³   ³   ³   project.nuget.cache
+³   ³   ³   
+³   ³   ÀÄÄÄDebug
+³   ³       ÀÄÄÄnet8.0
+³   ³           ³   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+³   ³           ³   ApiEndpoints.json
+³   ³           ³   apphost.exe
+³   ³           ³   Contacts.B14F3802.Up2Date
+³   ³           ³   ContactsAPI.AssemblyInfo.cs
+³   ³           ³   ContactsAPI.AssemblyInfoInputs.cache
+³   ³           ³   ContactsAPI.assets.cache
+³   ³           ³   ContactsAPI.csproj.AssemblyReference.cache
+³   ³           ³   ContactsAPI.csproj.BuildWithSkipAnalyzers
+³   ³           ³   ContactsAPI.csproj.CoreCompileInputs.cache
+³   ³           ³   ContactsAPI.csproj.FileListAbsolute.txt
+³   ³           ³   ContactsAPI.dll
+³   ³           ³   ContactsAPI.GeneratedMSBuildEditorConfig.editorconfig
+³   ³           ³   ContactsAPI.genruntimeconfig.cache
+³   ³           ³   ContactsAPI.GlobalUsings.g.cs
+³   ³           ³   ContactsAPI.MvcApplicationPartsAssemblyInfo.cache
+³   ³           ³   ContactsAPI.MvcApplicationPartsAssemblyInfo.cs
+³   ³           ³   ContactsAPI.pdb
+³   ³           ³   MvcTestingAppManifest.json
+³   ³           ³   staticwebassets.build.json
+³   ³           ³   staticwebassets.references.upToDateCheck.txt
+³   ³           ³   staticwebassets.removed.txt
+³   ³           ³   
+³   ³           ÃÄÄÄEndpointInfo
+³   ³           ³       ContactsAPI.json
+³   ³           ³       ContactsAPI.OpenApiFiles.cache
+³   ³           ³       
+³   ³           ÃÄÄÄref
+³   ³           ³       ContactsAPI.dll
+³   ³           ³       
+³   ³           ÃÄÄÄrefint
+³   ³           ³       ContactsAPI.dll
+³   ³           ³       
+³   ³           ÀÄÄÄstaticwebassets
+³   ³                   msbuild.build.ContactsAPI.props
+³   ³                   msbuild.buildMultiTargeting.ContactsAPI.props
+³   ³                   msbuild.buildTransitive.ContactsAPI.props
+³   ³                   
+³   ÃÄÄÄProperties
+³   ³       launchSettings.json
+³   ³       
+³   ÃÄÄÄServices
+³   ³       ApiEndpointHealthCheck.cs
+³   ³       ConfigService.cs
+³   ³       MetricsRegistry.cs
+³   ³       MetricsTracker.cs
+³   ³       UserContext.cs
+³   ³       
+³   ÀÄÄÄTest
+³       ÃÄÄÄAdminTestHandler
+³       ³       AddExtraFieldDefinitionHandlerTest.cs
+³       ³       GetExtraFieldDefinitionsHandlerTest.cs
+³       ³       UpdateExtraFieldDefinitionHandlerTest.cs
+³       ³       
+³       ÃÄÄÄBehaviors
+³       ³       RoleAuthorizationBehaviorTests.cs
+³       ³       
+³       ÃÄÄÄContactHandlerTest
+³       ³       AddContactHandlerTests.cs
+³       ³       DeleteContactHandlerTests.cs
+³       ³       GetContactByIdHandlerTests.cs
+³       ³       GetContactsHandlerTests.cs
+³       ³       UpdateContactHandlerTests.cs
+³       ³       
+³       ÃÄÄÄIntegrationTest
+³       ³       UsersControllerIntegrationTests.cs
+³       ³       
+³       ÀÄÄÄUserHandlerTest
+³               CreateUserHandlerTests.cs
+³               DeleteUserHandlerTests.cs
+³               GetUserByIdHandlerTests.cs
+³               GetUsersHandlerTests.cs
+³               UpdateUserHandlerTests.cs
+³               
+ÀÄÄÄContactsAPITest.Tests
+    ³   MyApp.Tests.csproj
+    ³   UnitTest1.cs
+    ³   
+    ÀÄÄÄobj
+            MyApp.Tests.csproj.nuget.dgspec.json
+            MyApp.Tests.csproj.nuget.g.props
+            MyApp.Tests.csproj.nuget.g.targets
+            project.assets.json
+            project.nuget.cache
+            

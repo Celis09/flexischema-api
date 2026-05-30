@@ -1,0 +1,28 @@
+## .NET Build Output
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userossproj
+*.sln.docuser
+
+## IDE
+.vs/
+.vscode/
+.idea/
+
+## Secrets (local dev config with real connection strings & JWT keys)
+appsettings.Development.json
+
+## Logs
+Logs/
+*.log
+
+## OS files
+Thumbs.db
+.DS_Store
+
+## Temp files
+actual_structure.txt
