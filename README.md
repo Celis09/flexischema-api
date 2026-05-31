@@ -7,7 +7,7 @@ A robust, production-ready ASP.NET Core 8 Web API for managing contacts and user
 | Layer    | URL                                                              |
 |----------|------------------------------------------------------------------|
 | Backend  | `http://flexischemacrm.runasp.net`                               |
-| Frontend | `https://contacts-app-frontend-tawny.vercel.app`                 |
+| Frontend | `https://flexischema-crm-tawny.vercel.app`                 |
 | Health   | `http://flexischemacrm.runasp.net/health`                        |
 
 > **Note:** The backend is hosted on a free-tier provider without HTTPS. The Vercel frontend uses a reverse-proxy (`vercel.json` rewrites) to securely bridge the connection.
