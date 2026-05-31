@@ -1,6 +1,7 @@
-﻿using ContactsAPI.Application.Admins.Commands.AddExtraFieldDefinition;
+using ContactsAPI.Application.Admins.Commands.AddExtraFieldDefinition;
 using ContactsAPI.Models;
 using ContactsAPI.Test.AdminTestHandler.Helpers;
+using Microsoft.Extensions.Caching.Memory;
 using Xunit;
 
 namespace ContactsAPI.Test.AdminTestHandler;
@@ -13,7 +14,7 @@ public class AddExtraFieldDefinitionHandlerTest
         await using var context = AdminDbFactory.Create(
             nameof(Handle_ShouldCreateDefinition));
 
-        var handler = new AddExtraFieldDefinitionHandler(context);
+        var handler = new AddExtraFieldDefinitionHandler(context, new MemoryCache(new MemoryCacheOptions()));
         var command = new AddExtraFieldDefinitionCommand
         {
             FieldName = "Twitter",

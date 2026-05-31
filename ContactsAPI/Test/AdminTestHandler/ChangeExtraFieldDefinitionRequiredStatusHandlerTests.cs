@@ -1,7 +1,8 @@
-﻿using ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionRequiredStatus;
+using ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionRequiredStatus;
 using ContactsAPI.Entities;
 using ContactsAPI.Models;
 using ContactsAPI.Test.AdminTestHandler.Helpers;
+using Microsoft.Extensions.Caching.Memory;
 using Xunit;
 
 namespace ContactsAPI.Test.AdminTestHandler;
@@ -26,7 +27,7 @@ public class ChangeExtraFieldDefinitionRequiredStatusHandlerTests
         context.ExtraFieldDefinitions.Add(def);
         await context.SaveChangesAsync();
 
-        var handler = new ChangeExtraFieldDefinitionRequiredStatusHandler(context);
+        var handler = new ChangeExtraFieldDefinitionRequiredStatusHandler(context, new MemoryCache(new MemoryCacheOptions()));
         var command = new ChangeExtraFieldDefinitionRequiredStatusCommand
         {
             ExtraFieldDefinitionId = def.ExtraFieldDefinitionId,
@@ -49,7 +50,7 @@ public class ChangeExtraFieldDefinitionRequiredStatusHandlerTests
         await using var context = AdminDbFactory.Create(
             nameof(Handle_WithNonExistentDefinition_ReturnsFalse) + "_Required");
 
-        var handler = new ChangeExtraFieldDefinitionRequiredStatusHandler(context);
+        var handler = new ChangeExtraFieldDefinitionRequiredStatusHandler(context, new MemoryCache(new MemoryCacheOptions()));
         var command = new ChangeExtraFieldDefinitionRequiredStatusCommand
         {
             ExtraFieldDefinitionId = 9999,

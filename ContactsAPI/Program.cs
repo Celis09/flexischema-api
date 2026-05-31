@@ -25,13 +25,25 @@ var builder = WebApplication.CreateBuilder(args);
 // ==========================================
 // CORS POLICY
 // ==========================================
+var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyOrigin() // <-- Temporary wildcard for deployment synchronization
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        if (allowedOrigins.Any())
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials(); // Required for secure frontend tokens/cookies
+        }
+        else
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        }
     });
 });
 

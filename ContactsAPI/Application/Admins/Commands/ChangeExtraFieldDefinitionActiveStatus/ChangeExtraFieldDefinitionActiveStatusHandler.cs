@@ -1,9 +1,10 @@
-﻿using ContactsAPI.Data;
+using ContactsAPI.Data;
 using MediatR;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionActiveStatus
 {
-    public class ChangeExtraFieldDefinitionActiveStatusHandler(ContactsDbContext context) : IRequestHandler<ChangeExtraFieldDefinitionActiveStatusCommand, bool>
+    public class ChangeExtraFieldDefinitionActiveStatusHandler(ContactsDbContext context, IMemoryCache cache) : IRequestHandler<ChangeExtraFieldDefinitionActiveStatusCommand, bool>
     {
         public async Task<bool> Handle(ChangeExtraFieldDefinitionActiveStatusCommand request, CancellationToken cancellationToken)
         {
@@ -14,6 +15,7 @@ namespace ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionActi
 
             definition.IsActive = request.IsActive;
             await context.SaveChangesAsync(cancellationToken);
+            cache.Remove("extrafield:definitions:withOptions");
             return true;
         }
     }

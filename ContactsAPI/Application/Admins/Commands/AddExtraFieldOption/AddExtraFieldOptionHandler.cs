@@ -1,11 +1,12 @@
-﻿using ContactsAPI.Data;
+using ContactsAPI.Data;
 using ContactsAPI.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ContactsAPI.Application.Admins.Commands.AddExtraFieldOption;
 
-public class AddExtraFieldOptionHandler(ContactsDbContext context)
+public class AddExtraFieldOptionHandler(ContactsDbContext context, IMemoryCache cache)
     : IRequestHandler<AddExtraFieldOptionCommand, AddExtraFieldOptionResult>
 {
     public async Task<AddExtraFieldOptionResult> Handle(
@@ -26,6 +27,7 @@ public class AddExtraFieldOptionHandler(ContactsDbContext context)
 
         context.ExtraFieldOptions.Add(option);
         await context.SaveChangesAsync(cancellationToken);
+        cache.Remove("extrafield:definitions:withOptions");
 
         return new AddExtraFieldOptionResult(
             option.ExtraFieldOptionId,

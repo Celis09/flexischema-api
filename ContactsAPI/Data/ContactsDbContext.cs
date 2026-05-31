@@ -64,7 +64,7 @@ namespace ContactsAPI.Data
             // IMPORTANT: Use a hardcoded hash here. If you use BCrypt.HashPassword() directly in OnModelCreating,
             // EF Core will generate a new hash every time it evaluates the model, causing endless pending migrations.
             // This hash corresponds to the password: "Password@123"
-            var defaultPasswordHash = "$2a$11$6QR6oAAIBpD9Z.Z7xEXKk.pzK275JRyImXkvEA8.MaqjKKshKowyW";
+            var defaultPasswordHash = "$2a$11$QVYI9saOk91TpM/cbARh6e3or7Ujlsuk.sRSHxKGHhNl4awZ1eXYm";
             
             modelBuilder.Entity<User>().HasData(
                 new User

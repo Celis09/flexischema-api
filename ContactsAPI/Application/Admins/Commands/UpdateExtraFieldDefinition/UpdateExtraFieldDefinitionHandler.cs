@@ -1,10 +1,11 @@
-﻿using ContactsAPI.Data;
+using ContactsAPI.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ContactsAPI.Application.Admins.Commands.UpdateExtraFieldDefinition
 {
-    public class UpdateExtraFieldDefinitionHandler(ContactsDbContext context) : IRequestHandler<UpdateExtraFieldDefinitionCommand, bool>
+    public class UpdateExtraFieldDefinitionHandler(ContactsDbContext context, IMemoryCache cache) : IRequestHandler<UpdateExtraFieldDefinitionCommand, bool>
     {
         public async Task<bool> Handle(UpdateExtraFieldDefinitionCommand request, CancellationToken cancellationToken)
         {
@@ -19,6 +20,7 @@ namespace ContactsAPI.Application.Admins.Commands.UpdateExtraFieldDefinition
             definition.IsRequired = request.IsRequired;
 
             await context.SaveChangesAsync(cancellationToken);
+            cache.Remove("extrafield:definitions:withOptions");
             return true;
         }
     }

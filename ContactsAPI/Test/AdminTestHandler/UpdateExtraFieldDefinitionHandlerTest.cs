@@ -1,7 +1,8 @@
-﻿using ContactsAPI.Application.Admins.Commands.UpdateExtraFieldDefinition;
+using ContactsAPI.Application.Admins.Commands.UpdateExtraFieldDefinition;
 using ContactsAPI.Entities;
 using ContactsAPI.Models;
 using ContactsAPI.Test.AdminTestHandler.Helpers;
+using Microsoft.Extensions.Caching.Memory;
 using Xunit;
 
 namespace ContactsAPI.Test.AdminTestHandler;
@@ -23,7 +24,7 @@ public class UpdateExtraFieldDefinitionHandlerTest
         context.ExtraFieldDefinitions.Add(def);
         await context.SaveChangesAsync();
 
-        var handler = new UpdateExtraFieldDefinitionHandler(context);
+        var handler = new UpdateExtraFieldDefinitionHandler(context, new MemoryCache(new MemoryCacheOptions()));
         var command = new UpdateExtraFieldDefinitionCommand
         {
             ExtraFieldDefinitionId = def.ExtraFieldDefinitionId,
@@ -47,7 +48,7 @@ public class UpdateExtraFieldDefinitionHandlerTest
         await using var context = AdminDbFactory.Create(
             nameof(Handle_WithNonExistentId_ReturnsFalse));
 
-        var handler = new UpdateExtraFieldDefinitionHandler(context);
+        var handler = new UpdateExtraFieldDefinitionHandler(context, new MemoryCache(new MemoryCacheOptions()));
         var command = new UpdateExtraFieldDefinitionCommand
         {
             ExtraFieldDefinitionId = 9999,
