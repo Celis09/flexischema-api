@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.Contacts.Commands.CreateContact;
+using ContactsAPI.Application.Contacts.Commands.CreateContact;
 using ContactsAPI.Application.Contacts.Dtos;
 using ContactsAPI.Application.Helper;
 using ContactsAPI.Data;
@@ -368,9 +368,18 @@ namespace ContactsAPI.Application.Admins.Commands.ImportContacts
                     return (trimmed, null);
 
                 case ExtraFieldType.Date:
-                    if (!DateTime.TryParseExact(trimmed, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out _))
-                        return (trimmed, $"Field '{definition.FieldName}' expects a date (YYYY-MM-DD), got '{trimmed}'.");
-                    return (trimmed, null);
+                    string[] dateFormats = ["MM/dd/yyyy", "M/d/yyyy", "M/dd/yyyy", "MM/d/yyyy", "yyyy-MM-dd", "yyyy-MM-ddTHH:mm:ss", "dd/MM/yyyy", "d/M/yyyy"];
+                    
+                    if (DateTime.TryParseExact(trimmed, dateFormats, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var parsedDate))
+                    {
+                        return (parsedDate.ToString("yyyy-MM-dd"), null);
+                    }
+                    else if (DateTime.TryParse(trimmed, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var autoDate))
+                    {
+                        return (autoDate.ToString("yyyy-MM-dd"), null);
+                    }
+                    
+                    return (trimmed, $"Field '{definition.FieldName}' expects a date, got '{trimmed}'. Supported formats include YYYY-MM-DD and MM/DD/YYYY.");
 
                 case ExtraFieldType.Email:
                     if (!trimmed.Contains('@') || !trimmed.Contains('.'))
