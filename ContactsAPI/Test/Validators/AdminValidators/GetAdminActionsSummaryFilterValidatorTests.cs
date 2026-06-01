@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.AuditLogs.Queries.GetAdminActionsSummary;
+using ContactsAPI.Application.AuditLogs.Queries.GetAdminActionsSummary;
 using Xunit;
 
 namespace ContactsAPI.Test.Validators.AdminValidators;
@@ -63,7 +63,7 @@ public class GetAdminActionsSummaryFilterValidatorTests
 
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors,
-            e => e.ErrorMessage == "To Date must be greater than or equal to FromDate");
+            e => e.ErrorMessage == "To Date must be greater than or equal to From Date");
     }
 
     // ── Pagination ────────────────────────────────────────────────────────────

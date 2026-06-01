@@ -15,8 +15,9 @@ namespace ContactsAPI.Application.Contacts.Queries.GetContactsPaged
                 .Must(d => d == null || d <= PhilippineTime.Now)
                 .WithMessage("To Date cannot be in the future");
 
-            RuleFor(q => q)
-                .Must(q => !(q.FromDate.HasValue && q.ToDate.HasValue) || q.ToDate >= q.FromDate)
+            RuleFor(q => q.ToDate)
+                .GreaterThanOrEqualTo(q => q.FromDate)
+                .When(q => q.FromDate.HasValue && q.ToDate.HasValue)
                 .WithMessage("To Date must be greater than or equal to From Date");
 
             RuleFor(q => q.Page)

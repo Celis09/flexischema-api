@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.Helper;
+using ContactsAPI.Application.Helper;
 using FluentValidation;
 
 namespace ContactsAPI.Application.AuditLogs.Queries.GetAdminActionsSummary
@@ -15,9 +15,10 @@ namespace ContactsAPI.Application.AuditLogs.Queries.GetAdminActionsSummary
                 .Must(d => d == null || d <= PhilippineTime.Now)
                 .WithMessage("To Date cannot be in the future");
 
-            RuleFor(f => f)
-                .Must(f => !(f.FromDate.HasValue && f.ToDate.HasValue) || f.ToDate >= f.FromDate)
-                .WithMessage("To Date must be greater than or equal to FromDate");
+            RuleFor(f => f.ToDate)
+                .GreaterThanOrEqualTo(f => f.FromDate)
+                .When(f => f.FromDate.HasValue && f.ToDate.HasValue)
+                .WithMessage("To Date must be greater than or equal to From Date");
 
             RuleFor(f => f.Page)
                 .GreaterThan(0).WithMessage("Page must be greater than 0");
