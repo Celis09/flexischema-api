@@ -61,7 +61,8 @@ namespace ContactsAPI.API.Controllers.Contacts
         [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
-            var contact = await mediator.Send(new GetContactByIdQuery { Id = id });
+            var isAdmin = User.Identity?.IsAuthenticated == true && User.IsInRole("Admin");
+            var contact = await mediator.Send(new GetContactByIdQuery { Id = id, IsAdmin = isAdmin });
             if (contact == null) return NotFound();
 
             return Ok(contact);

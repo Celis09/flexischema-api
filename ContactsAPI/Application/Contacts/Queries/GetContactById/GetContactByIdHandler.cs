@@ -1,5 +1,6 @@
-﻿using ContactsAPI.Application.Contacts.Dtos;
+using ContactsAPI.Application.Contacts.Dtos;
 using ContactsAPI.Data;
+using ContactsAPI.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,10 +10,17 @@ namespace ContactsAPI.Application.Contacts.Queries.GetContactById
     {
         public async Task<ContactDto?> Handle(GetContactByIdQuery request, CancellationToken cancellationToken)
         {
-            var contact = await context.Contacts
+            var query = context.Contacts
                 .Include(c => c.ExtraFields)
                     .ThenInclude(f => f.Definition)
-                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
+                .AsQueryable();
+
+            if (!request.IsAdmin)
+            {
+                query = query.Where(c => c.Status == ContactStatus.Active);
+            }
+
+            var contact = await query.FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
             if (contact == null) return null;
 
