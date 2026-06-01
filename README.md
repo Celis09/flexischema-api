@@ -27,7 +27,11 @@ A robust, production-ready ASP.NET Core 8 Web API for managing contacts and user
 * **Vertical Slice Architecture**: Application logic is grouped by feature (e.g., Contacts, Users, Admins) rather than technical layer, vastly improving developer velocity.
 * **Robust Testing**: Comprehensive test suite containing **196 passing Unit and Integration Tests** utilizing `xUnit`, `Moq`, and `FluentAssertions`.
 * **Structured Logging**: Integrated `Serilog` with Elasticsearch & Console sinks, featuring Correlation IDs to trace requests seamlessly.
-* **Production-Ready Security**: Locked-down CORS policy with explicit origin whitelisting, JWT Bearer authentication, and role-based authorization.
+* **Production-Ready Security**: 
+  * Locked-down CORS policy with explicit origin whitelisting.
+  * **HTTP-Only Cookies** for secure, XSS-immune JWT and Refresh Token storage (with a fallback to `Authorization` header for backward compatibility with Swagger/Postman).
+  * Strict role-based authorization restricting `Inactive` and `Archived` contact access to Admins only.
+* **Smart CSV Import Engine**: Automatically parses and normalizes dozens of inconsistent date formats into strict ISO standards during data ingestion.
 
 ## 🛠️ Tech Stack
 
