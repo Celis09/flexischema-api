@@ -133,7 +133,6 @@ Use the `POST /api/v1/auth/login` endpoint to get your token, and paste it into 
 | POST   | `/api/v1/contacts`                    | Bearer     | Create a new contact           |
 | GET    | `/api/v1/contacts/{id}`               | Bearer     | Get contact by ID              |
 | PUT    | `/api/v1/contacts/{id}`               | Bearer     | Update a contact               |
-| DELETE | `/api/v1/contacts/{id}`               | Bearer     | Delete a contact               |
 | GET    | `/api/v1/contacts/export`             | Bearer     | Export contacts to CSV          |
 | GET    | `/api/v1/admin/users`                 | Admin      | List all users                 |
 | POST   | `/api/v1/admin/users`                 | Admin      | Create a new user              |

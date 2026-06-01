@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.Admins.Commands.AddExtraFieldDefinition;
+using ContactsAPI.Application.Admins.Commands.AddExtraFieldDefinition;
 using ContactsAPI.Application.Admins.Commands.AddExtraFieldOption;
 using ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionActiveStatus;
 using ContactsAPI.Application.Admins.Commands.ChangeExtraFieldDefinitionRequiredStatus;
@@ -121,19 +121,19 @@ namespace ContactsAPI.API.Controllers.Admin
             return CreatedAtAction(nameof(GetOptions), new { id }, result);
         }
 
-        [HttpDelete("{id}/options/{optionId}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteOption(int id, int optionId, CancellationToken ct)
-        {
-            var option = await context.ExtraFieldOptions
-                .FirstOrDefaultAsync(o => o.ExtraFieldOptionId == optionId &&
-                                          o.ExtraFieldDefinitionId == id, ct);
-
-            if (option == null) return NotFound();
-
-            context.ExtraFieldOptions.Remove(option);
-            await context.SaveChangesAsync(ct);
-            return NoContent();
-        }
+        // [HttpDelete("{id}/options/{optionId}")]
+        // [Authorize(Roles = "Admin")]
+        // public async Task<IActionResult> DeleteOption(int id, int optionId, CancellationToken ct)
+        // {
+        //     var option = await context.ExtraFieldOptions
+        //         .FirstOrDefaultAsync(o => o.ExtraFieldOptionId == optionId &&
+        //                                   o.ExtraFieldDefinitionId == id, ct);
+        //
+        //     if (option == null) return NotFound();
+        //
+        //     context.ExtraFieldOptions.Remove(option);
+        //     await context.SaveChangesAsync(ct);
+        //     return NoContent();
+        // }
     }
 }
