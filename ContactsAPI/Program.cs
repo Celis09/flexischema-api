@@ -225,7 +225,10 @@ app.UseMiddleware<CorrelationIdMiddleware>();
 
 // Enable Swagger in all environments for portfolio demonstration purposes
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c => 
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "FlexiSchema API v1");
+});
 
 app.UseHttpsRedirection();
 
