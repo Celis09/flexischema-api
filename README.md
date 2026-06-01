@@ -1,4 +1,4 @@
-# Contacts API (CQRS & Clean Architecture)
+# FlexiSchema API (CQRS & Clean Architecture)
 
 A robust, production-ready ASP.NET Core 8 Web API for managing contacts and users. Built to demonstrate advanced software engineering patterns, this project utilizes **CQRS (Command Query Responsibility Segregation)**, **MediatR**, and a **Folder-Based Clean Architecture** to ensure high scalability, testability, and separation of concerns.
 
