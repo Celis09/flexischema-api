@@ -73,6 +73,8 @@ namespace ContactsAPI.API.Controllers.Auth
                 signingCredentials: creds
             );
 
+            var jwtString = new JwtSecurityTokenHandler().WriteToken(token);
+
             var refreshToken = TokenHelper.GenerateRefreshToken();
             context.RefreshTokens.Add(new RefreshToken
             {
@@ -83,18 +85,48 @@ namespace ContactsAPI.API.Controllers.Auth
             });
             context.SaveChanges();
 
+            // Set JWT as HTTP-Only cookie (immune to XSS — JavaScript cannot read this)
+            Response.Cookies.Append("access_token", jwtString, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Lax,
+                Expires = PhilippineTime.Now.AddMinutes(30),
+                Path = "/"
+            });
+
+            // Set Refresh Token as HTTP-Only cookie (only sent to auth endpoints)
+            Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Lax,
+                Expires = PhilippineTime.Now.AddDays(7),
+                Path = "/api/v1/auth"
+            });
+
             return Ok(new
             {
-                token = new JwtSecurityTokenHandler().WriteToken(token),
+                message = "Login successful",
+                username = user.Username,
+                role = user.Role,
+                userId = user.UserId,
+                // Also return tokens in body for backward compatibility (Swagger/Postman)
+                token = jwtString,
                 refreshToken
             });
         }
 
         [HttpPost("refresh")]
-        public IActionResult Refresh([FromBody] RefreshRequest request)
+        public IActionResult Refresh([FromBody] RefreshRequest? request = null)
         {
+            // Read refresh token from cookie first, fall back to request body (Swagger/Postman)
+            var refreshTokenValue = Request.Cookies["refresh_token"] ?? request?.RefreshToken;
+            if (string.IsNullOrEmpty(refreshTokenValue))
+                return Unauthorized(new { error = "No refresh token provided." });
+
             var storedToken = context.RefreshTokens
-                .FirstOrDefault(rt => rt.Token == request.RefreshToken && !rt.IsRevoked);
+                .FirstOrDefault(rt => rt.Token == refreshTokenValue && !rt.IsRevoked);
 
             if (storedToken == null || storedToken.Expires < PhilippineTime.Now)
                 return Unauthorized();
@@ -114,19 +146,50 @@ namespace ContactsAPI.API.Controllers.Auth
             });
             context.SaveChanges();
 
+            // Set new JWT as HTTP-Only cookie
+            Response.Cookies.Append("access_token", newJwt, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Lax,
+                Expires = PhilippineTime.Now.AddMinutes(30),
+                Path = "/"
+            });
+
+            // Set new Refresh Token as HTTP-Only cookie
+            Response.Cookies.Append("refresh_token", newRefreshToken, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Lax,
+                Expires = PhilippineTime.Now.AddDays(7),
+                Path = "/api/v1/auth"
+            });
+
             return Ok(new { token = newJwt, refreshToken = newRefreshToken });
         }
 
         [HttpPost("logout")]
-        public IActionResult Logout([FromBody] RefreshRequest request)
+        public IActionResult Logout([FromBody] RefreshRequest? request = null)
         {
-            var storedToken = context.RefreshTokens
-                .FirstOrDefault(rt => rt.Token == request.RefreshToken);
+            // Read refresh token from cookie first, fall back to request body (Swagger/Postman)
+            var refreshTokenValue = Request.Cookies["refresh_token"] ?? request?.RefreshToken;
 
-            if (storedToken == null) return NotFound();
+            if (!string.IsNullOrEmpty(refreshTokenValue))
+            {
+                var storedToken = context.RefreshTokens
+                    .FirstOrDefault(rt => rt.Token == refreshTokenValue);
 
-            storedToken.IsRevoked = true;
-            context.SaveChanges();
+                if (storedToken != null)
+                {
+                    storedToken.IsRevoked = true;
+                    context.SaveChanges();
+                }
+            }
+
+            // Always clear cookies on logout
+            Response.Cookies.Delete("access_token", new CookieOptions { Path = "/" });
+            Response.Cookies.Delete("refresh_token", new CookieOptions { Path = "/api/v1/auth" });
 
             return Ok(new { message = "Logged out successfully" });
         }

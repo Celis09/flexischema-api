@@ -72,6 +72,19 @@ builder.Services.AddAuthentication("Bearer")
             ValidAudience = jwtAud,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
         };
+
+        // Read JWT from HTTP-Only cookie first, fall back to Authorization header (Swagger/Postman)
+        options.Events = new Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                if (context.Request.Cookies.ContainsKey("access_token"))
+                {
+                    context.Token = context.Request.Cookies["access_token"];
+                }
+                return Task.CompletedTask;
+            }
+        };
     });
 
 var elasticsearchUri = builder.Configuration["Elasticsearch:Uri"]
