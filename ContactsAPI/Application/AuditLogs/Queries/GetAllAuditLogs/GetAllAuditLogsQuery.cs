@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.AuditLogs.Dtos;
+using ContactsAPI.Application.AuditLogs.Dtos;
 using ContactsAPI.Application.Contacts.Dtos;
 using MediatR;
 
@@ -19,5 +19,7 @@ namespace ContactsAPI.Application.AuditLogs.Queries.GetAllAuditLogs
         public bool? Success { get; set; }
         public int? UserId { get; set; }          // optional filter
         public string? Username { get; set; }     // optional filter
+        public DateTime? FromDate { get; set; }
+        public DateTime? ToDate { get; set; }
     }
 }

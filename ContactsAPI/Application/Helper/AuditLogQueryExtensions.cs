@@ -1,4 +1,4 @@
-﻿using ContactsAPI.Application.AuditLogs.Queries.GetAllAuditLogs;
+using ContactsAPI.Application.AuditLogs.Queries.GetAllAuditLogs;
 using ContactsAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,6 +38,12 @@ namespace ContactsAPI.Application.Helper
 
             if (!string.IsNullOrEmpty(request.Username))
                 query = query.Where(a => a.PerformedByUsername == request.Username);  
+
+            if (request.FromDate.HasValue)
+                query = query.Where(a => a.Timestamp >= request.FromDate.Value.Date);
+
+            if (request.ToDate.HasValue)
+                query = query.Where(a => a.Timestamp < request.ToDate.Value.Date.AddDays(1));
 
             return query;
         }
