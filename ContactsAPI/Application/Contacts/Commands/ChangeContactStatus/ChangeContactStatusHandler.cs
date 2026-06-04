@@ -1,5 +1,6 @@
 ﻿using ContactsAPI.Data;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactsAPI.Application.Contacts.Commands.ChangeContactStatus
 {
@@ -14,6 +15,16 @@ namespace ContactsAPI.Application.Contacts.Commands.ChangeContactStatus
 
             contact.Status = request.Status;
             await context.SaveChangesAsync(cancellationToken);
+
+            // Invalidate cached AI insight — status change may affect AI analysis
+            var cachedInsight = await context.ContactInsights
+                .FirstOrDefaultAsync(ci => ci.ContactId == contact.Id, cancellationToken);
+            if (cachedInsight != null)
+            {
+                context.ContactInsights.Remove(cachedInsight);
+                await context.SaveChangesAsync(cancellationToken);
+            }
+
             return true;
         }
     }

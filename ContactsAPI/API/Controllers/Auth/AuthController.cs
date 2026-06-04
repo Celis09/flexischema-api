@@ -20,7 +20,7 @@ namespace ContactsAPI.API.Controllers.Auth
     [ApiController]
     [Route("api/v1/auth")]
     [AllowAnonymous]
-    public class AuthController(IConfiguration config, ContactsDbContext context, IAuthService authService) : ControllerBase
+    public class AuthController(IConfiguration config, ContactsDbContext context, IAuthService authService, IWebHostEnvironment env) : ControllerBase
     {
         [HttpGet("health")]
         [AllowAnonymous]
@@ -89,7 +89,7 @@ namespace ContactsAPI.API.Controllers.Auth
             Response.Cookies.Append("access_token", jwtString, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
+                Secure = !env.IsDevelopment(),
                 SameSite = SameSiteMode.Lax,
                 Expires = PhilippineTime.Now.AddMinutes(30),
                 Path = "/"
@@ -99,7 +99,7 @@ namespace ContactsAPI.API.Controllers.Auth
             Response.Cookies.Append("refresh_token", refreshToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
+                Secure = !env.IsDevelopment(),
                 SameSite = SameSiteMode.Lax,
                 Expires = PhilippineTime.Now.AddDays(7),
                 Path = "/api/v1/auth"
@@ -150,7 +150,7 @@ namespace ContactsAPI.API.Controllers.Auth
             Response.Cookies.Append("access_token", newJwt, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
+                Secure = !env.IsDevelopment(),
                 SameSite = SameSiteMode.Lax,
                 Expires = PhilippineTime.Now.AddMinutes(30),
                 Path = "/"
@@ -160,7 +160,7 @@ namespace ContactsAPI.API.Controllers.Auth
             Response.Cookies.Append("refresh_token", newRefreshToken, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
+                Secure = !env.IsDevelopment(),
                 SameSite = SameSiteMode.Lax,
                 Expires = PhilippineTime.Now.AddDays(7),
                 Path = "/api/v1/auth"

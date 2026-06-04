@@ -18,6 +18,8 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using System.Text;
+using Microsoft.Extensions.AI;
+using OpenAI;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,6 +56,17 @@ builder.Services.AddScoped<IUserContext, UserContext>();
 builder.Services.AddScoped<IConfigService, ConfigService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IContactExportService, ContactExportService>();
+
+// Configure and Register Groq IChatClient using Microsoft.Extensions.AI
+var groqApiKey = builder.Configuration["AI_Providers:Groq_ApiKey"];
+if (string.IsNullOrEmpty(groqApiKey))
+{
+    throw new InvalidOperationException("Groq API Key is missing from configuration!");
+}
+builder.Services.AddChatClient(new OpenAIClient(
+    new System.ClientModel.ApiKeyCredential(groqApiKey),
+    new OpenAIClientOptions { Endpoint = new Uri("https://api.groq.com/openai/v1") }
+).GetChatClient("llama-3.1-8b-instant").AsIChatClient());
 
 var jwtKey = builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key is not configured.");
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? throw new InvalidOperationException("Jwt:Issuer is not configured.");

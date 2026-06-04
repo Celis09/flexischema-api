@@ -2,10 +2,13 @@ using ContactsAPI.Application.Admins.Commands.ImportContacts;
 using ContactsAPI.Application.Contacts.Commands.ChangeContactStatus;
 using ContactsAPI.Application.Contacts.Commands.CreateContact;
 using ContactsAPI.Application.Contacts.Commands.UpdateContact;
+using ContactsAPI.Application.Contacts.Commands.MapCsvHeaders;
 using ContactsAPI.Application.Contacts.Dtos;
 using ContactsAPI.Application.Contacts.Queries.ExportContacts;
 using ContactsAPI.Application.Contacts.Queries.GetContactById;
 using ContactsAPI.Application.Contacts.Queries.GetContactsPaged;
+using ContactsAPI.Application.Contacts.Queries.GetContactInsights;
+using ContactsAPI.Application.Contacts.Queries.SearchContactsByAi;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -68,6 +71,23 @@ namespace ContactsAPI.API.Controllers.Contacts
             return Ok(contact);
         }
 
+        [HttpGet("{id}/insights")]
+        [Authorize]
+        public async Task<IActionResult> GetInsights(int id, [FromQuery] bool forceRegenerate = false)
+        {
+            var result = await mediator.Send(new GetContactInsightsQuery(id, forceRegenerate));
+            if (result == null) return NotFound();
+            return Ok(result);
+        }
+
+        [HttpGet("ai-search")]
+        [Authorize]
+        public async Task<IActionResult> SearchByAi([FromQuery] string prompt)
+        {
+            var result = await mediator.Send(new SearchContactsByAiQuery(prompt));
+            return Ok(result);
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> GetAllContacts([FromQuery] GetAllContactsQuery query)
@@ -104,6 +124,14 @@ namespace ContactsAPI.API.Controllers.Contacts
                 Email = c.Email,
                 ExtraFields = c.ExtraFields
             }));
+        }
+
+        [HttpPost("import/map-headers")]
+        [Authorize(Roles = "Admin,Editor")]
+        public async Task<IActionResult> MapHeaders([FromBody] MapCsvHeadersCommand command)
+        {
+            var result = await mediator.Send(command);
+            return Ok(result);
         }
 
         private const long MaxCsvBytes = 5 * 1024 * 1024;

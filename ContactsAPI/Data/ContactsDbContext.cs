@@ -18,6 +18,7 @@ namespace ContactsAPI.Data
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<AdminConfig> AdminConfigs { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<ContactInsight> ContactInsights { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ContactExtraField>()
@@ -60,6 +61,13 @@ namespace ContactsAPI.Data
             modelBuilder.Entity<Contact>()
                 .Property(c => c.CreatedDate)
                 .HasDefaultValueSql("GETUTCDATE()");
+            modelBuilder.Entity<ContactInsight>()
+                .HasKey(ci => ci.ContactId);
+            modelBuilder.Entity<ContactInsight>()
+                .HasOne(ci => ci.Contact)
+                .WithOne()
+                .HasForeignKey<ContactInsight>(ci => ci.ContactId)
+                .OnDelete(DeleteBehavior.Cascade);
             // Seed Admin user
             // IMPORTANT: Use a hardcoded hash here. If you use BCrypt.HashPassword() directly in OnModelCreating,
             // EF Core will generate a new hash every time it evaluates the model, causing endless pending migrations.

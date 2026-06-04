@@ -39,6 +39,16 @@ namespace ContactsAPI.Application.Contacts.Commands.UpdateContact
             }
 
             await context.SaveChangesAsync(cancellationToken);
+
+            // Invalidate cached AI insight — contact data has changed
+            var cachedInsight = await context.ContactInsights
+                .FirstOrDefaultAsync(ci => ci.ContactId == contact.Id, cancellationToken);
+            if (cachedInsight != null)
+            {
+                context.ContactInsights.Remove(cachedInsight);
+                await context.SaveChangesAsync(cancellationToken);
+            }
+
             return true;
         }
     }
