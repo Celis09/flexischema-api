@@ -59,14 +59,18 @@ builder.Services.AddScoped<IContactExportService, ContactExportService>();
 
 // Configure and Register Groq IChatClient using Microsoft.Extensions.AI
 var groqApiKey = builder.Configuration["AI_Providers:Groq_ApiKey"];
-if (string.IsNullOrEmpty(groqApiKey))
+if (!string.IsNullOrEmpty(groqApiKey))
 {
-    throw new InvalidOperationException("Groq API Key is missing from configuration!");
+    builder.Services.AddChatClient(new OpenAIClient(
+        new System.ClientModel.ApiKeyCredential(groqApiKey),
+        new OpenAIClientOptions { Endpoint = new Uri("https://api.groq.com/openai/v1") }
+    ).GetChatClient("llama-3.1-8b-instant").AsIChatClient());
 }
-builder.Services.AddChatClient(new OpenAIClient(
-    new System.ClientModel.ApiKeyCredential(groqApiKey),
-    new OpenAIClientOptions { Endpoint = new Uri("https://api.groq.com/openai/v1") }
-).GetChatClient("llama-3.1-8b-instant").AsIChatClient());
+else
+{
+    // Register a no-op client so the app starts without AI (production may not have the key)
+    builder.Services.AddSingleton<IChatClient>(new NoOpChatClient());
+}
 
 var jwtKey = builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key is not configured.");
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? throw new InvalidOperationException("Jwt:Issuer is not configured.");
@@ -278,3 +282,22 @@ app.MapControllers();
 app.Run();
 
 public partial class Program { }
+
+/// <summary>
+/// No-op chat client used when the Groq API key is not configured.
+/// AI features will return fallback responses gracefully.
+/// </summary>
+internal class NoOpChatClient : IChatClient
+{
+    public Task<ChatResponse> GetResponseAsync(IEnumerable<ChatMessage> messages, ChatOptions? options = null, CancellationToken cancellationToken = default)
+        => throw new InvalidOperationException("AI features are not configured (missing Groq API key).");
+
+    public IAsyncEnumerable<ChatResponseUpdate> GetStreamingResponseAsync(IEnumerable<ChatMessage> messages, ChatOptions? options = null, CancellationToken cancellationToken = default)
+        => throw new NotImplementedException();
+
+    public object? GetService(Type serviceType, object? serviceKey = null) => null;
+
+    public void Dispose() { }
+
+    public ChatClientMetadata Metadata => new("NoOpChatClient", null);
+}
