@@ -172,7 +172,9 @@ Analyzes a contact's profile (name, email, status, extra fields) using Groq's LL
 - **Summary**: A 2-sentence AI-generated profile summary
 - **Tag**: A relationship tag — **Lead**, **Active**, or **At Risk**
 
-Results are **cached in the database** to minimize API token usage. Pass `?forceRegenerate=true` to re-run the AI analysis.
+Results are **cached in the database** (`ContactInsights` table) to minimize API token usage. The cache is **auto-invalidated** whenever the contact is updated or its status changes, ensuring stale insights are never shown. Pass `?forceRegenerate=true` to manually re-run the AI analysis.
+
+> **Note:** If the Groq API key is not configured, the app starts gracefully with a no-op client — AI endpoints return fallback responses without crashing.
 
 ### AI Search (`GET /api/v1/contacts/ai-search?prompt=...`)
 Parses natural language queries into structured database filters. Examples:
@@ -180,10 +182,10 @@ Parses natural language queries into structured database filters. Examples:
 - `"inactive contacts"` → filters by `Status`
 - `"manager is Marco"` → filters by extra field value
 
-Includes role-based guardrails: non-admin users are forced to view only `Active` contacts regardless of the AI's output.
+Includes role-based guardrails (non-admin users are forced to view only `Active` contacts), **prompt injection safeguards** (500-char limit, instructions isolation), and **dynamic extra field awareness** (AI learns about all active field definitions at query time).
 
 ### Smart CSV Mapper (`POST /api/v1/contacts/import/map-headers`)
-Accepts CSV headers and sample data rows, then uses AI to map messy headers to system fields (standard + all active extra field definitions). Returns a dictionary of `{ "Messy CSV Header": "System Field Name" }`.
+Accepts CSV headers and sample data rows, then uses AI to map messy headers to system fields (standard + all active extra field definitions). Returns a dictionary of `{ "Messy CSV Header": "System Field Name" }`. Handles quoted fields with commas (e.g. `"Smith, John"`).
 
 ## 🧪 Testing
 
